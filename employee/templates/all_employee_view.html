@@ -1,0 +1,42 @@
+{% extends 'admin_base.html' %}
+
+{% block main %}
+
+<div class="card shadow m-2">
+    <div class="card-body">
+        <h5 class="p-2 text-danger" style="border-bottom : 2px solid orange; font-weight: bold;">EMPLOYEE DETAILS</h5>
+        <div class="container-fluid">
+            <table class="table table-bordered table-hover table-striped" id="example">
+                <thead class="bg-primary text-white">
+                    <tr>
+                        <th class="text-center">SR NO.</th>
+                        <th class="text-center">Emp_Code</th>
+                        <th class="text-center">First Name</th>
+                        <th class="text-center">Last Name</th>
+                        <th class="text-center">Email ID</th>
+                        <th class="text-center">Contact NO</th>
+                        <th class="text-center">Joining Date</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in employee %}
+                    <tr>
+                        <td class="text-center">{{ forloop.counter }}</td>
+                        <td class="text-center">{{ i.empcode }}</td>
+                        <td class="text-center">{{ i.user.first_name }}</td>
+                        <td class="text-center">{{ i.user.last_name }}</td>
+                        <td class="text-center">{{ i.user.username }}</td>
+                        <td class="text-center">{{ i.contact }}</td>
+                        <td class="text-center">{{ i.joiningdate }}</td>
+
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
